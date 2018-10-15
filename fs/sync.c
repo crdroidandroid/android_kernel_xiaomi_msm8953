@@ -99,7 +99,7 @@ static void fdatawait_one_bdev(struct block_device *bdev, void *arg)
  * just write metadata (such as inodes or bitmaps) to block device page cache
  * and do not sync it on their own in ->sync_fs().
  */
-SYSCALL_DEFINE0(sync)
+void blocking_sync(void)
 {
 	int nowait = 0, wait = 1;
 
@@ -111,6 +111,11 @@ SYSCALL_DEFINE0(sync)
 	iterate_bdevs(fdatawait_one_bdev, NULL);
 	if (unlikely(laptop_mode))
 		laptop_sync_completion();
+}
+
+SYSCALL_DEFINE0(sync)
+{
+	blocking_sync();
 	return 0;
 }
 
