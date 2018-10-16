@@ -313,12 +313,12 @@
 			reg = <0x2000 0x100>;
 			regulator-name = "pm8953_s5";
 			regulator-min-microvolt = <400000>;
-			regulator-max-microvolt = <1140000>;
+			regulator-max-microvolt = <1045000>; /* Same as max qcom,cpr-voltage-ceiling */
 
 			pm8953_s5_limit: avs-limit-regulator {
 				regulator-name = "pm8953_s5_avs_limit";
 				regulator-min-microvolt = <400000>;
-				regulator-max-microvolt = <1140000>;
+				regulator-max-microvolt = <1045000>; /* Same as max qcom,cpr-voltage-ceiling */
 			};
 		};
 	};
@@ -445,20 +445,20 @@
 
 				qcom,cpr-voltage-ceiling =
 					/* Speed bin 0 */
-					<715000  790000 860000 865000 920000
-					 990000 1065000 1065000 1065000>,
+					<690000  765000 835000 840000 895000
+					 965000 1045000 1045000 1045000>,
 
 					/* Speed bin 2 */
-					<715000  790000 860000 865000 920000
-					 990000 1065000>,
+					<690000  765000 835000 840000 895000
+					 965000 1045000>,
 
 					/* Speed bin 6 */
-					<715000  790000 860000 865000 920000
-					 990000 1065000>,
+					<690000  765000 835000 840000 895000
+					 965000 1045000>,
 
 					/* Speed bin 7 */
-					<715000  790000 860000 865000 920000
-					 990000 1065000 1065000 1065000>;
+					<690000  765000 835000 840000 895000
+					 965000 1045000 1045000 1045000>;
 
 				qcom,cpr-voltage-floor =
 					/* Speed bin 0 */
