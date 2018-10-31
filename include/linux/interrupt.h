@@ -57,6 +57,14 @@
  * IRQF_NO_THREAD - Interrupt cannot be threaded
  * IRQF_EARLY_RESUME - Resume IRQ early during syscore instead of at device
  *                resume time.
+ * IRQF_TH_SCHED_NORMAL - If the IRQ is threaded, it will use SCHED_NORMAL,
+ *                instead the default SCHED_FIFO scheduler
+ * IRQF_TH_NO_AFFINITY - If the IRQ is threaded, the affinity hint will not be
+ *                enforced in the IRQ thread
+ * IRQF_TH_SCHED_FIFO_LOW - If the IRQ is threaded, it will use SCHED_FIFO,
+ *                but will have lower priority than the threaded IRQ default
+ * IRQF_TH_SCHED_FIFO_HI - If the IRQ is threaded, it will use SCHED_NORMAL,
+ *                but will have higher priority than the threaded IRQ default
  */
 #define IRQF_DISABLED		0x00000020
 #define IRQF_SHARED		0x00000080
@@ -70,6 +78,10 @@
 #define IRQF_FORCE_RESUME	0x00008000
 #define IRQF_NO_THREAD		0x00010000
 #define IRQF_EARLY_RESUME	0x00020000
+#define IRQF_TH_SCHED_NORMAL	0x00040000
+#define IRQF_TH_NO_AFFINITY	0x00080000
+#define IRQF_TH_SCHED_FIFO_LOW	0x00200000
+#define IRQF_TH_SCHED_FIFO_HI	0x00400000
 
 #define IRQF_TIMER		(__IRQF_TIMER | IRQF_NO_SUSPEND | IRQF_NO_THREAD)
 
