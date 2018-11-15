@@ -165,7 +165,7 @@ void mdss_check_dsi_ctrl_status(struct work_struct *work, uint32_t interval)
 	if ((mipi->mode == DSI_CMD_MODE) && !ctrl_pdata->burst_mode_enabled)
 		mutex_unlock(&mdp5_data->ov_lock);
 
-	if ((pstatus_data->mfd->panel_power_state == MDSS_PANEL_POWER_ON)) {
+	if (pstatus_data->mfd->panel_power_state == MDSS_PANEL_POWER_ON) {
 		if (ret > 0)
 			queue_delayed_work(system_power_efficient_wq,
 				&pstatus_data->check_status,
